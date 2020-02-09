@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between mb-3">
+    <h3>{{viewTitle}}</h3>
+    <a class="btn btn-secondary" href="/employee"> <i class="fa fa-plus"></i> Create New</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullname}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.city}}</td>
+            <td>
+                <a href="/employee/{{this._id}}" class="btn btn-secondary"> <i class="fa fa-pencil fa-lg"></i></a>
+                &nbsp;
+                <a href="/employee/delete/{{this._id}}" 
+                    onclick="return confirm('Are you sure to delete this record ? ');"
+                class="btn btn-secondary"> <i class="fa fa-trash fa-lg"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
